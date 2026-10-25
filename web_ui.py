@@ -5,7 +5,12 @@ and test runtime security guardrails against destructive SQL operations.
 """
 
 import json
+import sys
 from pathlib import Path
+
+# Add project root to sys.path
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+
 from fastapi import FastAPI, Request
 from fastapi.responses import HTMLResponse, JSONResponse
 from pydantic import BaseModel
@@ -166,4 +171,4 @@ async def execute_query_endpoint(body: QueryBody):
 
 if __name__ == "__main__":
     print("🚀 Starting MCP Data Bridge Playground on http://127.0.0.1:8500")
-    uvicorn.run("web_ui:app", host="127.0.0.1", port=8500, reload=False)
+    uvicorn.run(app, host="127.0.0.1", port=8500)
