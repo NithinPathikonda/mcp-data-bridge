@@ -1,0 +1,46 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mcp-data-bridge"
+version = "1.0.0"
+description = "Secure Model Context Protocol (MCP) Database Gateway with Runtime SQL Injection & Prompt Injection Guardrails."
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+authors = [
+  { name = "Nithin Pathikonda", email = "nithinpathikonda360@gmail.com" }
+]
+keywords = [
+  "mcp",
+  "model-context-protocol",
+  "llm",
+  "ai-agents",
+  "sql-security",
+  "guardrails",
+  "prompt-injection"
+]
+dependencies = [
+  "pydantic>=2.7.0",
+  "fastapi>=0.115.0",
+  "uvicorn>=0.30.0",
+  "python-dotenv>=1.0.0"
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.0.0"
+]
+
+[project.scripts]
+mcp-data-bridge = "server:run_stdio_server"
+mcp-data-bridge-ui = "web_ui:app"
+
+[project.urls]
+Homepage = "https://github.com/NithinPathikonda/mcp-data-bridge"
+Repository = "https://github.com/NithinPathikonda/mcp-data-bridge"
+"Bug Tracker" = "https://github.com/NithinPathikonda/mcp-data-bridge/issues"
+
+[tool.setuptools]
+py-modules = ["server", "demo_db", "web_ui", "agent_demo", "test_server"]
