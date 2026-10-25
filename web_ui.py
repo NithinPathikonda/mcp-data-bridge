@@ -156,6 +156,10 @@ async def get_tables():
 async def get_schema(table_name: str):
     return bridge.describe_table(table_name)
 
+@app.get("/api/health")
+async def get_health():
+    return bridge.get_system_health()
+
 @app.post("/api/query")
 async def execute_query_endpoint(body: QueryBody):
     return bridge.execute_query(body.sql, body.limit)
