@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "enterprise-data-bridge": {
+      "command": "python",
+      "args": [
+        "/path/to/mcp-data-bridge/server.py",
+        "--stdio"
+      ]
+    }
+  }
+}

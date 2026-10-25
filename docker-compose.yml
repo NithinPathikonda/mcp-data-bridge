@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  mcp-data-bridge:
+    build: .
+    container_name: mcp-data-bridge
+    ports:
+      - "8500:8500"
+    environment:
+      - PYTHONUNBUFFERED=1
+    restart: unless-stopped
